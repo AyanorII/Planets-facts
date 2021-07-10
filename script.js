@@ -234,7 +234,6 @@ const rotationTime = document.getElementById('rotation-time');
 const revolutionTime = document.getElementById('revolution-time');
 const radius = document.getElementById('radius');
 const avgTemp = document.getElementById('avg-temp');
-const activeButton = document.getElementsByClassName('active')[0];
 
 for (let i = 0; i < navPlanets.length; i++) {
     navPlanets[i].addEventListener('click', () => {
@@ -256,22 +255,104 @@ for (let i = 0; i < navPlanets.length; i++) {
         
         // Change tab color depending on the planet
         for (let j = 0; j < tabButton.length; j++) {
-            if (i === 0) {
+            const activeButton = document.getElementsByClassName('tab-button active')[0];
+
+            if (i === 0) { // * Mercury 
                 tabButton[j].style.borderColor = '#419EBB';
-            } else if (i === 1) {
+                if (window.matchMedia('(min-width: 768px)').matches) {
+                    tabButton[j].style.borderColor = 'rgba(255, 255, 255, 0.164)';
+                    activeButton.style.backgroundColor = '#419EBB';
+                    tabButton[j].addEventListener('click', () => {
+                        for (let k = 0; k < tabButton.length; k++) {
+                            tabButton[k].style.backgroundColor = 'transparent';
+                            tabButton[j].style.backgroundColor = '#419EBB';
+                        }
+                    })
+                }
+            } else if (i === 1) { // * Venus
                 tabButton[j].style.borderColor = '#EDA249';
-            } else if (i === 2) {
+                if (window.matchMedia('(min-width: 768px)').matches) {
+                    tabButton[j].style.borderColor = 'rgba(255, 255, 255, 0.164)';
+                    activeButton.style.backgroundColor = '#EDA249';
+                    tabButton[j].addEventListener('click', () => {
+                        for (let k = 0; k < tabButton.length; k++) {
+                            tabButton[k].style.backgroundColor = 'transparent';
+                            tabButton[j].style.backgroundColor = '#EDA249';
+                        }
+                    })
+                }
+            } else if (i === 2) { // * Earth
                 tabButton[j].style.borderColor = '#6D2ED5';
-            } else if (i === 3) {
+                if (window.matchMedia('(min-width: 768px)').matches) {
+                    tabButton[j].style.borderColor = 'rgba(255, 255, 255, 0.164)';
+                    activeButton.style.backgroundColor = '#6D2ED5';
+                    tabButton[j].addEventListener('click', () => {
+                        for (let k = 0; k < tabButton.length; k++) {
+                            tabButton[k].style.backgroundColor = 'transparent';
+                            tabButton[j].style.backgroundColor = '#6D2ED5';
+                        }
+                    })
+                }
+            } else if (i === 3) { // * Mars
                 tabButton[j].style.borderColor = '#D14C32';
-            } else if (i === 4) {
+                if (window.matchMedia('(min-width: 768px)').matches) {
+                    tabButton[j].style.borderColor = 'rgba(255, 255, 255, 0.164)';
+                    activeButton.style.backgroundColor = '#D14C32';
+                    tabButton[j].addEventListener('click', () => {
+                        for (let k = 0; k < tabButton.length; k++) {
+                            tabButton[k].style.backgroundColor = 'transparent';
+                            tabButton[j].style.backgroundColor = '#D14C32';
+                        }
+                    })
+                }
+            } else if (i === 4) { // * Jupiter
                 tabButton[j].style.borderColor = '#D83A34';
-            } else if (i === 5) {
+                if (window.matchMedia('(min-width: 768px)').matches) {
+                    tabButton[j].style.borderColor = 'rgba(255, 255, 255, 0.164)';
+                    activeButton.style.backgroundColor = '#D83A34';
+                    tabButton[j].addEventListener('click', () => {
+                        for (let k = 0; k < tabButton.length; k++) {
+                            tabButton[k].style.backgroundColor = 'transparent';
+                            tabButton[j].style.backgroundColor = '#D83A34';
+                        }
+                    })
+                }
+            } else if (i === 5) { // * Saturn
                 tabButton[j].style.borderColor = '#CD5120';
-            } else if (i === 6) {
+                if (window.matchMedia('(min-width: 768px)').matches) {
+                    tabButton[j].style.borderColor = 'rgba(255, 255, 255, 0.164)';
+                    activeButton.style.backgroundColor = '#CD5120';
+                    tabButton[j].addEventListener('click', () => {
+                        for (let k = 0; k < tabButton.length; k++) {
+                            tabButton[k].style.backgroundColor = 'transparent';
+                            tabButton[j].style.backgroundColor = '#CD5120';
+                        }
+                    })
+                }
+            } else if (i === 6) { // * Uranus
                 tabButton[j].style.borderColor = '#1EC1A2';
-            } else {
+                if (window.matchMedia('(min-width: 768px)').matches) {
+                    tabButton[j].style.borderColor = 'rgba(255, 255, 255, 0.164)';
+                    activeButton.style.backgroundColor = '#1EC1A2';
+                    tabButton[j].addEventListener('click', () => {
+                        for (let k = 0; k < tabButton.length; k++) {
+                            tabButton[k].style.backgroundColor = 'transparent';
+                            tabButton[j].style.backgroundColor = '#1EC1A2';
+                        }
+                    })
+                }
+            } else { // * Neptune
                 tabButton[j].style.borderColor = '#2D68F0';
+                if (window.matchMedia('(min-width: 768px)').matches) {
+                    tabButton[j].style.borderColor = 'rgba(255, 255, 255, 0.164)';
+                    activeButton.style.backgroundColor = '#2D68F0';
+                    tabButton[j].addEventListener('click', () => {
+                        for (let k = 0; k < tabButton.length; k++) {
+                            tabButton[k].style.backgroundColor = 'transparent';
+                            tabButton[j].style.backgroundColor = '#2D68F0';
+                        }
+                    })
+                }
             }
         }
 
