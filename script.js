@@ -219,7 +219,7 @@ function tabClick(evt, index) {
     planetImg[index].classList.add('active');
 }
 
-// Change planet info when the planet is clicked
+// * Planet info
 const navPlanets = Array.from(document.getElementsByClassName('nav-planet'));
 const planetPlainImg = document.getElementsByClassName('planet-plain-img')[0];
 const geology = document.getElementsByClassName('geology')[0];
@@ -235,23 +235,28 @@ const revolutionTime = document.getElementById('revolution-time');
 const radius = document.getElementById('radius');
 const avgTemp = document.getElementById('avg-temp');
 
+// * Changes planet information depending on the selected planet.
+function changePlanetInfo(index) {
+    planetImg[0].src = planets[index].images.planet;
+    planetPlainImg.src = planets[index].images.planet;
+    planetImg[1].src = planets[index].images.internal;
+    geology.src = planets[index].images.geology;
+    planetName.innerText = planets[index].name;
+    overviewDescription.innerText = planets[index].overview.content;
+    overviewSource.href = planets[index].overview.source;
+    structureDescription.innerText = planets[index].structure.content;
+    structureSource.href = planets[index].structure.source;
+    surfaceDescription.innerText = planets[index].geology.content;
+    surfaceSource.href = planets[index].geology.source;
+    rotationTime.innerText = planets[index].rotation;
+    revolutionTime.innerText = planets[index].revolution;
+    radius.innerText = planets[index].radius;
+    avgTemp.innerText = planets[index].temperature;
+}
+
 for (let i = 0; i < navPlanets.length; i++) {
     navPlanets[i].addEventListener('click', () => {
-        planetImg[0].src = planets[i].images.planet;
-        planetPlainImg.src = planets[i].images.planet;
-        planetImg[1].src = planets[i].images.internal;
-        geology.src = planets[i].images.geology;
-        planetName.innerText = planets[i].name;
-        overviewDescription.innerText = planets[i].overview.content;
-        overviewSource.href = planets[i].overview.source;
-        structureDescription.innerText = planets[i].structure.content;
-        structureSource.href = planets[i].structure.source;
-        surfaceDescription.innerText = planets[i].geology.content;
-        surfaceSource.href = planets[i].geology.source;
-        rotationTime.innerText = planets[i].rotation;
-        revolutionTime.innerText = planets[i].revolution;
-        radius.innerText = planets[i].radius;
-        avgTemp.innerText = planets[i].temperature;
+        changePlanetInfo(i);
         
         // Change tab color depending on the planet
         for (let j = 0; j < tabButton.length; j++) {
@@ -355,7 +360,6 @@ for (let i = 0; i < navPlanets.length; i++) {
                 }
             }
         }
-
         // Close the Nav bar after the planet name is clicked
         navItems.classList.remove('show');
     })
