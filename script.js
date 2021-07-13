@@ -1,6 +1,5 @@
 // JSON
-const planets = [
-    {
+const planets = [{
         "name": "Mercury",
         "overview": {
             "content": "Mercury is the smallest planet in the Solar System and the closest to the Sun. Its orbit around the Sun takes 87.97 Earth days, the shortest of all the Sun's planets. Mercury is one of four terrestrial planets in the Solar System, and is a rocky body like Earth.",
@@ -194,15 +193,16 @@ const planets = [
     }
 ]
 
-// Navbar button
+// * Navbar button
 const toggleButton = document.getElementById('toggle');
 const navItems = document.getElementById('nav-items');
+
 
 toggleButton.addEventListener('click', () => {
     navItems.classList.toggle('show');
 })
 
-// Header tab button
+// * Header tab button
 const tabButton = document.getElementsByClassName('tab-button');
 const aboutPlanet = document.getElementsByClassName('about');
 const planetImg = Array.from(document.getElementsByClassName('planet-img'));
@@ -257,112 +257,126 @@ function changePlanetInfo(index) {
 for (let i = 0; i < navPlanets.length; i++) {
     navPlanets[i].addEventListener('click', () => {
         changePlanetInfo(i);
-        
-        // Change tab color depending on the planet
-        for (let j = 0; j < tabButton.length; j++) {
-            const activeButton = document.getElementsByClassName('tab-button active')[0];
 
-            if (i === 0) { // * Mercury 
-                tabButton[j].style.borderColor = '#419EBB';
-                if (window.matchMedia('(min-width: 768px)').matches) {
-                    tabButton[j].style.borderColor = 'rgba(255, 255, 255, 0.164)';
-                    activeButton.style.backgroundColor = '#419EBB';
-                    tabButton[j].addEventListener('click', () => {
-                        for (let k = 0; k < tabButton.length; k++) {
-                            tabButton[k].style.backgroundColor = 'transparent';
-                            tabButton[j].style.backgroundColor = '#419EBB';
-                        }
-                    })
-                }
-            } else if (i === 1) { // * Venus
-                tabButton[j].style.borderColor = '#EDA249';
-                if (window.matchMedia('(min-width: 768px)').matches) {
-                    tabButton[j].style.borderColor = 'rgba(255, 255, 255, 0.164)';
-                    activeButton.style.backgroundColor = '#EDA249';
-                    tabButton[j].addEventListener('click', () => {
-                        for (let k = 0; k < tabButton.length; k++) {
-                            tabButton[k].style.backgroundColor = 'transparent';
-                            tabButton[j].style.backgroundColor = '#EDA249';
-                        }
-                    })
-                }
-            } else if (i === 2) { // * Earth
-                tabButton[j].style.borderColor = '#6D2ED5';
-                if (window.matchMedia('(min-width: 768px)').matches) {
-                    tabButton[j].style.borderColor = 'rgba(255, 255, 255, 0.164)';
-                    activeButton.style.backgroundColor = '#6D2ED5';
-                    tabButton[j].addEventListener('click', () => {
-                        for (let k = 0; k < tabButton.length; k++) {
-                            tabButton[k].style.backgroundColor = 'transparent';
-                            tabButton[j].style.backgroundColor = '#6D2ED5';
-                        }
-                    })
-                }
-            } else if (i === 3) { // * Mars
-                tabButton[j].style.borderColor = '#D14C32';
-                if (window.matchMedia('(min-width: 768px)').matches) {
-                    tabButton[j].style.borderColor = 'rgba(255, 255, 255, 0.164)';
-                    activeButton.style.backgroundColor = '#D14C32';
-                    tabButton[j].addEventListener('click', () => {
-                        for (let k = 0; k < tabButton.length; k++) {
-                            tabButton[k].style.backgroundColor = 'transparent';
-                            tabButton[j].style.backgroundColor = '#D14C32';
-                        }
-                    })
-                }
-            } else if (i === 4) { // * Jupiter
-                tabButton[j].style.borderColor = '#D83A34';
-                if (window.matchMedia('(min-width: 768px)').matches) {
-                    tabButton[j].style.borderColor = 'rgba(255, 255, 255, 0.164)';
-                    activeButton.style.backgroundColor = '#D83A34';
-                    tabButton[j].addEventListener('click', () => {
-                        for (let k = 0; k < tabButton.length; k++) {
-                            tabButton[k].style.backgroundColor = 'transparent';
-                            tabButton[j].style.backgroundColor = '#D83A34';
-                        }
-                    })
-                }
-            } else if (i === 5) { // * Saturn
-                tabButton[j].style.borderColor = '#CD5120';
-                if (window.matchMedia('(min-width: 768px)').matches) {
-                    tabButton[j].style.borderColor = 'rgba(255, 255, 255, 0.164)';
-                    activeButton.style.backgroundColor = '#CD5120';
-                    tabButton[j].addEventListener('click', () => {
-                        for (let k = 0; k < tabButton.length; k++) {
-                            tabButton[k].style.backgroundColor = 'transparent';
-                            tabButton[j].style.backgroundColor = '#CD5120';
-                        }
-                    })
-                }
-            } else if (i === 6) { // * Uranus
-                tabButton[j].style.borderColor = '#1EC1A2';
-                if (window.matchMedia('(min-width: 768px)').matches) {
-                    tabButton[j].style.borderColor = 'rgba(255, 255, 255, 0.164)';
-                    activeButton.style.backgroundColor = '#1EC1A2';
-                    tabButton[j].addEventListener('click', () => {
-                        for (let k = 0; k < tabButton.length; k++) {
-                            tabButton[k].style.backgroundColor = 'transparent';
-                            tabButton[j].style.backgroundColor = '#1EC1A2';
-                        }
-                    })
-                }
-            } else { // * Neptune
-                tabButton[j].style.borderColor = '#2D68F0';
-                if (window.matchMedia('(min-width: 768px)').matches) {
-                    tabButton[j].style.borderColor = 'rgba(255, 255, 255, 0.164)';
-                    activeButton.style.backgroundColor = '#2D68F0';
-                    tabButton[j].addEventListener('click', () => {
-                        for (let k = 0; k < tabButton.length; k++) {
-                            tabButton[k].style.backgroundColor = 'transparent';
-                            tabButton[j].style.backgroundColor = '#2D68F0';
-                        }
-                    })
-                }
+        // * Change tab color depending on the planet
+        for (let j = 0; j < tabButton.length; j++) {
+            const activeTab = document.getElementsByClassName('tab-button active')[0];
+
+            switch (i) {
+                case 0: // * Mercury 
+                    if (window.matchMedia('(min-width: 768px)').matches) {
+                        activeTab.style.backgroundColor = '#419EBB';
+                        tabButton[j].addEventListener('click', () => {
+                            for (let k = 0; k < tabButton.length; k++) {
+                                tabButton[k].style.backgroundColor = 'transparent';
+                                tabButton[j].style.backgroundColor = '#419EBB';
+                            }
+                        })
+                    } else {
+                        tabButton[j].style.borderColor = '#419EBB';
+                    }
+                    break;
+
+                case 1: // * Venus
+                    if (window.matchMedia('(min-width: 768px)').matches) {
+                        activeTab.style.backgroundColor = '#EDA249';
+                        tabButton[j].addEventListener('click', () => {
+                            for (let k = 0; k < tabButton.length; k++) {
+                                tabButton[k].style.backgroundColor = 'transparent';
+                                tabButton[j].style.backgroundColor = '#EDA249';
+                            }
+                        })
+                    } else {
+                        tabButton[j].style.borderColor = '#EDA249';
+                    }
+                    break;
+
+                case 2: // * Earth
+                    if (window.matchMedia('(min-width: 768px)').matches) {
+                        activeTab.style.backgroundColor = '#6D2ED5';
+                        tabButton[j].addEventListener('click', () => {
+                            for (let k = 0; k < tabButton.length; k++) {
+                                tabButton[k].style.backgroundColor = 'transparent';
+                                tabButton[j].style.backgroundColor = '#6D2ED5';
+                            }
+                        })
+                    } else {
+                        tabButton[j].style.borderColor = '#6D2ED5';
+                    }
+                    break;
+
+                case 3: // * Mars
+                    if (window.matchMedia('(min-width: 768px)').matches) {
+                        activeTab.style.backgroundColor = '#D14C32';
+                        tabButton[j].addEventListener('click', () => {
+                            for (let k = 0; k < tabButton.length; k++) {
+                                tabButton[k].style.backgroundColor = 'transparent';
+                                tabButton[j].style.backgroundColor = '#D14C32';
+                            }
+                        })
+                    } else {
+                        tabButton[j].style.borderColor = '#D14C32';
+                    }
+                    break;
+
+                case 4: // * Jupiter
+                    if (window.matchMedia('(min-width: 768px)').matches) {
+                        activeTab.style.backgroundColor = '#D83A34';
+                        tabButton[j].addEventListener('click', () => {
+                            for (let k = 0; k < tabButton.length; k++) {
+                                tabButton[k].style.backgroundColor = 'transparent';
+                                tabButton[j].style.backgroundColor = '#D83A34';
+                            }
+                        })
+                    } else {
+                        tabButton[j].style.borderColor = '#D83A34';
+                    }
+                    break;
+
+                case 5: // * Saturn
+                    if (window.matchMedia('(min-width: 768px)').matches) {
+                        activeTab.style.backgroundColor = '#CD5120';
+                        tabButton[j].addEventListener('click', () => {
+                            for (let k = 0; k < tabButton.length; k++) {
+                                tabButton[k].style.backgroundColor = 'transparent';
+                                tabButton[j].style.backgroundColor = '#CD5120';
+                            }
+                        })
+                    } else {
+                        tabButton[j].style.borderColor = '#CD5120';
+                    }
+                    break;
+
+                case 6: // * Uranus
+                    if (window.matchMedia('(min-width: 768px)').matches) {
+                        activeTab.style.backgroundColor = '#1EC1A2';
+                        tabButton[j].addEventListener('click', () => {
+                            for (let k = 0; k < tabButton.length; k++) {
+                                tabButton[k].style.backgroundColor = 'transparent';
+                                tabButton[j].style.backgroundColor = '#1EC1A2';
+                            }
+                        })
+                    } else {
+                        tabButton[j].style.borderColor = '#1EC1A2';
+                    }
+                    break;
+
+                case 7: // * Neptune
+                    if (window.matchMedia('(min-width: 768px)').matches) {
+                        activeTab.style.backgroundColor = '#2D68F0';
+                        tabButton[j].addEventListener('click', () => {
+                            for (let k = 0; k < tabButton.length; k++) {
+                                tabButton[k].style.backgroundColor = 'transparent';
+                                tabButton[j].style.backgroundColor = '#2D68F0';
+                            }
+                        })
+                    } else {
+                        tabButton[j].style.borderColor = '#2D68F0';
+                    }
+                    break;
             }
         }
-        // Close the Nav bar after the planet name is clicked
+        // * Close the Nav bar after the planet name is clicked
         navItems.classList.remove('show');
     })
 }
-
-

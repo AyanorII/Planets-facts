@@ -1,4 +1,4 @@
-// GEneral Styling
+// * General Styling
 * {
     padding: 0;
     margin: 0;
@@ -55,7 +55,7 @@ p {
     letter-spacing: 1px;
 }
 
-// Navbar Style
+// * Navbar Style
 nav {
     .navbar {
         display: flex;
@@ -172,7 +172,7 @@ nav {
     }
 }
 
-// Header Style
+// * Header Style
 header {
     border: 1px solid rgba(170, 170, 170, 0.226);
     display: flex;
@@ -196,7 +196,7 @@ header {
     }
 }
 
-// Main Style
+// * Main Style
 main {
     padding: 0 24px;
     
@@ -256,7 +256,7 @@ main {
     }
 }
 
-// Footer Style
+// * Footer Style
 footer {
     .stats {
         display: flex;
@@ -293,7 +293,7 @@ footer {
         grid-template-columns: repeat(4, 1fr);
     }
 
-    // Nav Styling - Tablet ver.
+    // * Nav Styling - Tablet ver.
     nav {
         grid-column: 1 / -1;
         .navbar {
@@ -325,7 +325,7 @@ footer {
         }
     }
 
-    // Header Styling - Tablet ver.
+    // * Header Styling - Tablet ver.
     header {
         grid-column: 3 / 5;
         grid-row: 3 / 4;
@@ -339,9 +339,11 @@ footer {
             letter-spacing: 5px;
             margin-bottom: 1.5rem;
             text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.164);
             
             &.active {
                 background-color: #419EBB;
+                border-width: 0px;
             }
 
             &:nth-child(1)::before {
@@ -367,7 +369,7 @@ footer {
         }
     }
 
-    // Main Styling - Tablet ver.
+    // * Main Styling - Tablet ver.
     main {
         grid-column: 1 / -1;
         grid-row: 2 / 4;
@@ -397,7 +399,7 @@ footer {
         }
     }
 
-    // Footer Styling - Tablet ver.
+    // * Footer Styling - Tablet ver.
     footer {
         grid-column: 1 / -1;
         .stats {
