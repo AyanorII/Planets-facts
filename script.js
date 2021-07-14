@@ -254,6 +254,19 @@ function changePlanetInfo(index) {
     avgTemp.innerText = planets[index].temperature;
 }
 
+// * HEX Colors for each planet.
+const planetColors = [
+    {mercury: '#419EBB'},
+    {venus: '#EDA249'},
+    {earth: '#6D2ED5'},
+    {mars: '#D14C32'},
+    {jupiter: '#D83A34'},
+    {saturn: '#CD5120'},
+    {uranus: '#1EC1A2'},
+    {neptune: '#2D68F0'}
+]
+
+
 for (let i = 0; i < navPlanets.length; i++) {
     navPlanets[i].addEventListener('click', () => {
         changePlanetInfo(i);
@@ -261,120 +274,23 @@ for (let i = 0; i < navPlanets.length; i++) {
         // * Change tab color depending on the planet
         for (let j = 0; j < tabButton.length; j++) {
             const activeTab = document.getElementsByClassName('tab-button active')[0];
-
-            switch (i) {
-                case 0: // * Mercury 
-                    if (window.matchMedia('(min-width: 768px)').matches) {
-                        activeTab.style.backgroundColor = '#419EBB';
-                        tabButton[j].addEventListener('click', () => {
-                            for (let k = 0; k < tabButton.length; k++) {
-                                tabButton[k].style.backgroundColor = 'transparent';
-                                tabButton[j].style.backgroundColor = '#419EBB';
-                            }
-                        })
-                    } else {
-                        tabButton[j].style.borderColor = '#419EBB';
+            
+            /** 
+            * * Checks if the device screen size is at least Tablet or above and change the tab color.
+            * * When the website is accessed in a Smartphone, only change the bottom border color should change.
+            * */ 
+            if (window.matchMedia('(min-width: 768px)').matches) {
+                activeTab.style.backgroundColor = Object.values(planetColors[i]).join('');
+                tabButton[j].addEventListener('click', () => {
+                    for (let k = 0; k < tabButton.length; k++) {
+                        tabButton[k].style.backgroundColor = 'transparent';
+                        tabButton[j].style.backgroundColor = Object.values(planetColors[i]).join('');
                     }
-                    break;
-
-                case 1: // * Venus
-                    if (window.matchMedia('(min-width: 768px)').matches) {
-                        activeTab.style.backgroundColor = '#EDA249';
-                        tabButton[j].addEventListener('click', () => {
-                            for (let k = 0; k < tabButton.length; k++) {
-                                tabButton[k].style.backgroundColor = 'transparent';
-                                tabButton[j].style.backgroundColor = '#EDA249';
-                            }
-                        })
-                    } else {
-                        tabButton[j].style.borderColor = '#EDA249';
-                    }
-                    break;
-
-                case 2: // * Earth
-                    if (window.matchMedia('(min-width: 768px)').matches) {
-                        activeTab.style.backgroundColor = '#6D2ED5';
-                        tabButton[j].addEventListener('click', () => {
-                            for (let k = 0; k < tabButton.length; k++) {
-                                tabButton[k].style.backgroundColor = 'transparent';
-                                tabButton[j].style.backgroundColor = '#6D2ED5';
-                            }
-                        })
-                    } else {
-                        tabButton[j].style.borderColor = '#6D2ED5';
-                    }
-                    break;
-
-                case 3: // * Mars
-                    if (window.matchMedia('(min-width: 768px)').matches) {
-                        activeTab.style.backgroundColor = '#D14C32';
-                        tabButton[j].addEventListener('click', () => {
-                            for (let k = 0; k < tabButton.length; k++) {
-                                tabButton[k].style.backgroundColor = 'transparent';
-                                tabButton[j].style.backgroundColor = '#D14C32';
-                            }
-                        })
-                    } else {
-                        tabButton[j].style.borderColor = '#D14C32';
-                    }
-                    break;
-
-                case 4: // * Jupiter
-                    if (window.matchMedia('(min-width: 768px)').matches) {
-                        activeTab.style.backgroundColor = '#D83A34';
-                        tabButton[j].addEventListener('click', () => {
-                            for (let k = 0; k < tabButton.length; k++) {
-                                tabButton[k].style.backgroundColor = 'transparent';
-                                tabButton[j].style.backgroundColor = '#D83A34';
-                            }
-                        })
-                    } else {
-                        tabButton[j].style.borderColor = '#D83A34';
-                    }
-                    break;
-
-                case 5: // * Saturn
-                    if (window.matchMedia('(min-width: 768px)').matches) {
-                        activeTab.style.backgroundColor = '#CD5120';
-                        tabButton[j].addEventListener('click', () => {
-                            for (let k = 0; k < tabButton.length; k++) {
-                                tabButton[k].style.backgroundColor = 'transparent';
-                                tabButton[j].style.backgroundColor = '#CD5120';
-                            }
-                        })
-                    } else {
-                        tabButton[j].style.borderColor = '#CD5120';
-                    }
-                    break;
-
-                case 6: // * Uranus
-                    if (window.matchMedia('(min-width: 768px)').matches) {
-                        activeTab.style.backgroundColor = '#1EC1A2';
-                        tabButton[j].addEventListener('click', () => {
-                            for (let k = 0; k < tabButton.length; k++) {
-                                tabButton[k].style.backgroundColor = 'transparent';
-                                tabButton[j].style.backgroundColor = '#1EC1A2';
-                            }
-                        })
-                    } else {
-                        tabButton[j].style.borderColor = '#1EC1A2';
-                    }
-                    break;
-
-                case 7: // * Neptune
-                    if (window.matchMedia('(min-width: 768px)').matches) {
-                        activeTab.style.backgroundColor = '#2D68F0';
-                        tabButton[j].addEventListener('click', () => {
-                            for (let k = 0; k < tabButton.length; k++) {
-                                tabButton[k].style.backgroundColor = 'transparent';
-                                tabButton[j].style.backgroundColor = '#2D68F0';
-                            }
-                        })
-                    } else {
-                        tabButton[j].style.borderColor = '#2D68F0';
-                    }
-                    break;
+                });
+            } else {
+                tabButton[j].style.borderColor = Object.values(planetColors[i]).join('');
             }
+
         }
         // * Close the Nav bar after the planet name is clicked
         navItems.classList.remove('show');
